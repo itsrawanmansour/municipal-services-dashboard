@@ -1,5 +1,7 @@
 # Municipal Services Analytics Dashboard — Power BI
 
+Rawan Mansour
+
 ![Dashboard Preview](assets/dashboard_preview.png)
 
 ## Overview
@@ -11,7 +13,7 @@ This project was inspired by hands-on experience gained during a Data Analyst in
 ## Business Questions
 
 1. What is the average processing time per service type and neighborhood, and where are the bottlenecks?
-2. Do complaint volumes rise and processing times slow down during peak seasons?
+2. Do complaint volumes rise and processing times slow down during peak seasons (Ramadan/Hajj)?
 3. Which submission channels do citizens use most, and are they linked to faster resolution?
 4. Which neighborhoods have the highest rate of recurring complaints (cleanliness, encroachment, lighting)?
 5. What share of requests are rejected or referred elsewhere?
@@ -39,40 +41,25 @@ Dataset: `data/municipal_services_makkah.csv` — 6,000 synthetic records spanni
 
 ## Dashboard Contents
 
-**KPI Cards:** Total requests, average processing time, average satisfaction rating, completion rate.
+**KPI Cards:** Total requests, average processing time, number of neighborhoods covered, average satisfaction rating.
 
 **Visuals:**
 - Monthly request volume trend (highlights Ramadan/Hajj spikes)
 - Request distribution by category (Complaint / License / Maintenance)
 - Request distribution by status
-- Request volume and processing time by neighborhood
-- Average processing time by service type (top bottlenecks)
+- Request volume by neighborhood
+- Request volume by service type
 - Request volume by channel and neighborhood
 
 **Interactivity:** Slicers for Status and Neighborhood, cross-filtering across all visuals.
 
-## Key DAX Measures
-
-```DAX
-Avg Processing Time = AVERAGE(municipal_services_makkah[مدة_المعالجة_أيام])
-
-Total Requests = COUNTROWS(municipal_services_makkah)
-
-Completion Rate =
-DIVIDE(
-    CALCULATE(COUNTROWS(municipal_services_makkah), municipal_services_makkah[الحالة] IN {"مغلق - تم الحل","مقبول ومنفذ"}),
-    COUNTROWS(municipal_services_makkah)
-)
-
-Avg Satisfaction = AVERAGE(municipal_services_makkah[تقييم_الرضا])
-```
-
 ## Key Insights
 
-- Processing time varies significantly by service type — building permits and construction-violation complaints take the longest to resolve, while cleanliness and vendor complaints are closed fastest.
-- Request volume spikes noticeably during Ramadan and Hajj periods, with processing times increasing in parallel due to higher load.
+- Request volume spikes noticeably during Ramadan and Hajj periods, visible as two clear peaks in the monthly trend.
+- Building permits and commercial licenses are the most frequently submitted service types, followed by building-violation complaints.
 - The Balady app is the dominant submission channel across nearly all neighborhoods.
-- Roughly a third of all requests are license applications, with the remainder split between complaints and maintenance requests.
+- Complaints make up the majority of all requests (61%), license applications about a third (33%), and maintenance requests the smallest share (6%).
+- Al Aziziyah, Al Shawqiyah, and Al Zahir are the neighborhoods with the highest request volumes.
 
 ## Repository Structure
 
@@ -90,4 +77,6 @@ Avg Satisfaction = AVERAGE(municipal_services_makkah[تقييم_الرضا])
 
 Power BI Desktop · Power Query · DAX
 
+## Disclaimer
 
+This project uses a synthetically generated dataset created for portfolio and learning purposes. It is not sourced from, endorsed by, or affiliated with any government entity. Any resemblance to real request records is coincidental — the data structure is informed by professional experience, not by actual municipal data.
