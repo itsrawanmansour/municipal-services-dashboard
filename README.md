@@ -1,7 +1,5 @@
 # Municipal Services Analytics Dashboard — Power BI
 
-Rawan Mansour
-
 ![Dashboard Preview](assets/dashboard_preview.png)
 
 ## Overview
@@ -13,7 +11,7 @@ This project was inspired by hands-on experience gained during a Data Analyst in
 ## Business Questions
 
 1. What is the average processing time per service type and neighborhood, and where are the bottlenecks?
-2. Do complaint volumes rise and processing times slow down during peak seasons (Ramadan/Hajj)?
+2. Do complaint volumes rise and processing times slow down during peak seasons?
 3. Which submission channels do citizens use most, and are they linked to faster resolution?
 4. Which neighborhoods have the highest rate of recurring complaints (cleanliness, encroachment, lighting)?
 5. What share of requests are rejected or referred elsewhere?
@@ -75,8 +73,5 @@ Dataset: `data/municipal_services_makkah.csv` — 6,000 synthetic records spanni
 
 ## Tools Used
 
-Power BI Desktop · Power Query · DAX
+Power BI Desktop
 
-## Disclaimer
-
-This project uses a synthetically generated dataset created for portfolio and learning purposes. It is not sourced from, endorsed by, or affiliated with any government entity. Any resemblance to real request records is coincidental — the data structure is informed by professional experience, not by actual municipal data.
